@@ -6,31 +6,57 @@ import {MenuItem} from '@components';
 export interface IMenuItem {
   name: string;
   path?: string;
+  logo?: React.ReactNode;
   children?: Array<IMenuItem>;
 }
 
 export const MENU: IMenuItem[] = [
   {
-    name: 'menusidebar.label.dashboard',
-    path: '/'
-  },
-  {
-    name: 'menusidebar.label.blank',
-    path: '/blank'
-  },
-  {
-    name: 'menusidebar.label.mainMenu',
+    name: 'Quản lí người dùng',
+    logo: <i className="nav-icon fas fa-users" />,
     children: [
       {
-        name: 'menusidebar.label.subMenu',
-        path: '/sub-menu-1'
+        name: 'Người dùng',
+        logo: <i className="ml-3 fas fa-user" />,
+        path: '/quan-li-nguoi-dung-1'
       },
 
       {
-        name: 'menusidebar.label.blank',
-        path: '/sub-menu-2'
+        name: 'Kiểu người dùng',
+        logo: <i className="ml-3 fas fa-users" />,
+        path: '/quan-li-nguoi-dung-2'
       }
     ]
+  },
+  {
+    name: 'Quản lí người chơi',
+    logo: <i className="nav-icon fas fa-users" />,
+    path: '/m'
+  },
+  {
+    name: 'Quản lí thông tin game',
+    logo: <i className="nav-icon fas fa-wrench" />,
+    children: [
+      {
+        name: 'Quản lí 1',
+        path: '/sub-1'
+      },
+
+      {
+        name: 'Quản lí 2',
+        path: '/sub-2'
+      }
+    ]
+  },
+  {
+    name: 'Quản lí thông báo',
+    logo: <i className="nav-icon fas fa-envelope" />,
+    path: '/a'
+  },
+  {
+    name: 'Quản lí FAQ',
+    logo: <i className="nav-icon fas fa-question" />,
+    path: '/x'
   }
 ];
 
@@ -44,12 +70,11 @@ const MenuSidebar = () => {
     <aside className={`main-sidebar elevation-4 ${sidebarSkin}`}>
       <Link to="/" className="brand-link">
         <img
-          src="/img/logo.png"
-          alt="AdminLTE Logo"
-          className="brand-image img-circle elevation-3"
+          src="/img/logo-metaxy.png"
+          alt="Metaxy Logo"
+          className="pl-4"
           style={{opacity: '.8'}}
         />
-        <span className="brand-text font-weight-light">AdminLTE 3</span>
       </Link>
       <div className="sidebar">
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
