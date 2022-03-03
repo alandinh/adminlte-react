@@ -1,42 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import {ContentHeader} from '@components';
+import SearchBox from '@app/components/searchbox/SearchBox';
+import Table from '@app/components/table/Table';
 
 const SubMenu = () => {
   return (
     <div>
-      <ContentHeader title="SubMenu Page" />
+      <ContentHeader title="Danh sách kiểu người dùng" />
       <section className="content">
         <div className="container-fluid">
-          <div className="card">
-            <div className="card-header">
-              <h3 className="card-title">Title</h3>
-              <div className="card-tools">
-                <button
-                  type="button"
-                  className="btn btn-tool"
-                  data-widget="collapse"
-                  data-toggle="tooltip"
-                  title="Collapse"
-                >
-                  <i className="fa fa-minus" />
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-tool"
-                  data-widget="remove"
-                  data-toggle="tooltip"
-                  title="Remove"
-                >
-                  <i className="fa fa-times" />
-                </button>
-              </div>
-            </div>
-            <div className="card-body">
-              Start creating your amazing application!
-            </div>
-            <div className="card-footer">Footer</div>
-          </div>
+          <SearchBox placeholder="Nhập tên kiểu người dùng" />
+        </div>
+        <div className="mt-2">
+          <Table />
         </div>
       </section>
     </div>
