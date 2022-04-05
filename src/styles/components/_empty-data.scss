@@ -1,0 +1,39 @@
+.empty-data-container {
+    .box-overview {
+        padding-left: 10px;
+        margin-top: 10px;
+        p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: -0.05em;
+            color: #8b9aa2;
+            span {
+                color: #000000;
+            }
+        }
+    }
+    .container-nodata {
+        display: flex;
+        justify-content: center;
+        .box-nodata {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            p {
+                margin-top: 20px;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 25px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                letter-spacing: -0.05em;
+                color: #404b50;
+            }
+        }
+    }
+}

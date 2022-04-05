@@ -1,36 +1,34 @@
-import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
-import {Link, useNavigate} from 'react-router-dom';
-import {toast} from 'react-toastify';
-import {useFormik} from 'formik';
-import {useTranslation} from 'react-i18next';
-import {loginUser} from '@store/reducers/auth';
-import {Checkbox, Button} from '@components';
-import {faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons';
-import {setWindowClass} from '@app/utils/helpers';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
+/* eslint-disable prettier/prettier */
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useFormik } from 'formik';
+import { loginUser } from '@store/reducers/auth';
+import { Checkbox, Button } from '@components';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { setWindowClass } from '@app/utils/helpers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as Yup from 'yup';
 
-import {Form, InputGroup} from 'react-bootstrap';
+import { Form, InputGroup } from 'react-bootstrap';
+import MetaxyLogo from '../../static/images/logo_metaxy.svg';
 import * as AuthService from '../../services/auth';
 
 const Login = () => {
   const [isAuthLoading, setAuthLoading] = useState(false);
-  const [isGoogleAuthLoading, setGoogleAuthLoading] = useState(false);
-  const [isFacebookAuthLoading, setFacebookAuthLoading] = useState(false);
+
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const [t] = useTranslation();
 
   const login = async (email: string, password: string) => {
     try {
       setAuthLoading(true);
-      const token = await AuthService.loginByAuth(email, password);
+      const response = await AuthService.login(email, password);
       toast.success('Login is succeed!');
       setAuthLoading(false);
-      dispatch(loginUser(token));
+      dispatch(loginUser(response?.data.tokens.access.token));
       navigate('/');
     } catch (error: any) {
       setAuthLoading(false);
@@ -38,45 +36,17 @@ const Login = () => {
     }
   };
 
-  const loginByGoogle = async () => {
-    try {
-      setGoogleAuthLoading(true);
-      const token = await AuthService.loginByGoogle();
-      toast.success('Login is succeeded!');
-      setGoogleAuthLoading(false);
-      dispatch(loginUser(token));
-      navigate('/');
-    } catch (error: any) {
-      setGoogleAuthLoading(false);
-      toast.error(error.message || 'Failed');
-    }
-  };
-
-  const loginByFacebook = async () => {
-    try {
-      setFacebookAuthLoading(true);
-      const token = await AuthService.loginByFacebook();
-      toast.success('Login is succeeded!');
-      setFacebookAuthLoading(false);
-      dispatch(loginUser(token));
-      navigate('/');
-    } catch (error: any) {
-      setFacebookAuthLoading(false);
-      toast.error(error.message || 'Failed');
-    }
-  };
-
-  const {handleChange, values, handleSubmit, touched, errors} = useFormik({
+  const { handleChange, values, handleSubmit, touched, errors } = useFormik({
     initialValues: {
       email: '',
       password: ''
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address').required('Required'),
+      email: Yup.string().email('Email của bạn không đúng định dạng. Vui lòng thử lại !').required('Vui lòng nhập email của bạn!'),
       password: Yup.string()
         .min(5, 'Must be 5 characters or more')
         .max(30, 'Must be 30 characters or less')
-        .required('Required')
+        .required('Vui lòng nhập mật khẩu của bạn!')
     }),
     onSubmit: (values) => {
       login(values.email, values.password);
@@ -89,13 +59,16 @@ const Login = () => {
     <div className="login-box">
       <div className="card card-outline card-primary">
         <div className="card-header text-center">
-          <Link to="/" className="h1">
-            <b>Admin</b>
-            <span>LTE</span>
+          <div className="card-logo">
+            <img src={MetaxyLogo} alt="" />
+          </div>
+          <Link to="/" className="h1 card-header-name">
+            <span className="branch-name">METAXY</span>
+            <span>Admin</span>
           </Link>
         </div>
         <div className="card-body">
-          <p className="login-box-msg">{t('login.label.signIn')}</p>
+          <p className="login-box-msg">Đăng nhập</p>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <InputGroup className="mb-3">
@@ -148,58 +121,15 @@ const Login = () => {
               </InputGroup>
             </div>
 
-            <div className="row">
-              <div className="col-8">
-                <Checkbox type="icheck" checked={false}>
-                  {t('login.label.rememberMe')}
-                </Checkbox>
-              </div>
-              <div className="col-4">
-                <Button
-                  block
-                  type="submit"
-                  isLoading={isAuthLoading}
-                  disabled={isFacebookAuthLoading || isGoogleAuthLoading}
-                >
-                  {/* @ts-ignore */}
-                  {t('login.button.signIn.label')}
-                </Button>
-              </div>
+            <div className="mb-3">
+              <Checkbox type="icheck" checked={false}>
+                Duy trì đăng nhập
+              </Checkbox>
             </div>
+            <Button block type="submit" isLoading={isAuthLoading}>
+              Đăng nhập
+            </Button>
           </form>
-          <div className="social-auth-links text-center mt-2 mb-3">
-            <Button
-              block
-              icon="facebook"
-              onClick={loginByFacebook}
-              isLoading={isFacebookAuthLoading}
-              disabled={isAuthLoading || isGoogleAuthLoading}
-            >
-              {/* @ts-ignore */}
-              {t('login.button.signIn.social', {
-                what: 'Facebook'
-              })}
-            </Button>
-            <Button
-              block
-              icon="google"
-              theme="danger"
-              onClick={loginByGoogle}
-              isLoading={isGoogleAuthLoading}
-              disabled={isAuthLoading || isFacebookAuthLoading}
-            >
-              {/* @ts-ignore */}
-              {t('login.button.signIn.social', {what: 'Google'})}
-            </Button>
-          </div>
-          <p className="mb-1">
-            <Link to="/forgot-password">{t('login.label.forgotPass')}</Link>
-          </p>
-          <p className="mb-0">
-            <Link to="/register" className="text-center">
-              {t('login.label.registerNew')}
-            </Link>
-          </p>
         </div>
       </div>
     </div>

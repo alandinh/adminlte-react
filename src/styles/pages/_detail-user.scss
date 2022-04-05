@@ -1,0 +1,81 @@
+.container-detail-user {
+    .box-information {
+        margin: 0 30px;
+        border: 1px solid #d3d9dc;
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 30px;
+        .infor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p {
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 30px;
+                color: #404b50;
+            }
+            &-btn {
+                display: flex;
+                align-items: center;
+                padding: 5px 10px;
+                border: 1px solid #2d7ff9;
+                border-radius: 8px;
+                cursor: pointer;
+                p {
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 20px;
+                    text-align: center;
+                    color: #2d7ff9;
+                    margin: 0;
+                    padding-left: 5px;
+                }
+            }
+        }
+        .infor-body {
+            margin-top: 10px;
+            &-box {
+                display: flex;
+                align-items: center;
+                &__title {
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #8b9aa2;
+                    margin-right: 20px;
+                }
+                &__des {
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #8b9aa2;
+                }
+            }
+        }
+    }
+    .btn-control {
+        margin: 30px;
+    }
+    .permission-box {
+        margin: 0 30px;
+        border: 1px solid #d3d9dc;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        border-radius: 8px;
+        p {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 23px;
+            letter-spacing: -0.05em;
+        }
+        .ant-checkbox-group {
+            display: flex;
+            flex-direction: column;
+            span {
+                font-weight: normal;
+            }
+        }
+    }
+}

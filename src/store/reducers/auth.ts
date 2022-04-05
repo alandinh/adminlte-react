@@ -1,4 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
+/* eslint-disable prettier/prettier */
+import { createSlice } from '@reduxjs/toolkit';
 
 export interface AuthState {
   isLoggedIn: boolean;
@@ -19,7 +20,7 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    loginUser: (state, {payload}) => {
+    loginUser: (state, { payload }) => {
       localStorage.setItem('token', payload);
       state.isLoggedIn = true;
       state.token = payload;
@@ -30,12 +31,12 @@ export const authSlice = createSlice({
       state.isLoggedIn = false;
       state.token = null;
     },
-    loadUser: (state, {payload}) => {
+    loadUser: (state, { payload }) => {
       state.currentUser = payload;
     }
   }
 });
 
-export const {loginUser, logoutUser, loadUser} = authSlice.actions;
+export const { loginUser, logoutUser, loadUser } = authSlice.actions;
 
 export default authSlice.reducer;

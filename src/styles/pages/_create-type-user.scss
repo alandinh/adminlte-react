@@ -1,0 +1,54 @@
+.container-type-user {
+    .content {
+        // padding-left: 150px;
+        margin: 0 150px;
+    }
+
+    .name-user-box {
+        margin-top: 15px;
+
+        span {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 20px;
+            color: rgb(212, 78, 78);
+        }
+    }
+
+    .note-box {
+        margin-top: 15px;
+        textarea {
+            border-radius: 8px;
+        }
+    }
+
+    .permission-box {
+        margin: 15px 0;
+
+        .ant-checkbox-group {
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+
+        .more {
+            color: rgb(212, 78, 78);
+            font-weight: 400;
+            font-style: 16px;
+        }
+    }
+
+    .btn-control {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+}

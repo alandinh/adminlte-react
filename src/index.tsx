@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {toast} from 'react-toastify';
-import {Gatekeeper} from 'gatekeeper-client-sdk';
+import { Provider } from 'react-redux';
+import { toast } from 'react-toastify';
+import { Gatekeeper } from 'gatekeeper-client-sdk';
 import App from '@app/App';
 import store from '@store/store';
 
@@ -10,6 +11,7 @@ import './i18n';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 toast.configure({
   autoClose: 3000,

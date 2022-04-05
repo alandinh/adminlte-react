@@ -1,0 +1,76 @@
+name: Deploy develop
+on:
+  push:
+    branches:
+      - develop
+
+env:
+  PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
+  PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/yarn
+            ${{ github.workspace }}/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install depends
+        run: yarn
+
+      - name: Setup env
+        run: cp .env.dev .env
+
+      - name: Build
+        run: CI=false yarn build
+
+      - name: Zip build
+        run: zip -r build.zip build
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/dev.key
+          chmod 600 ~/.ssh/dev.key
+          cat >>~/.ssh/config <<END
+          Host dev
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/dev.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST_DEV }}
+
+      - name: Scp server
+        run: scp -F ~/.ssh/config build.zip dev:/tmp
+
+      - name: Unzip
+        run: ssh dev "rm -rf $PROJECT_PATH/$PROJECT_NAME/* && unzip -o /tmp/build.zip -d $PROJECT_PATH/$PROJECT_NAME"
+
+      - name: Deploy
+        run: ssh dev "cd $PROJECT_PATH && ./deploy.sh"
+
+      - name: Clean cache build
+        run: ssh dev "rm -rf /tmp/build.zip"

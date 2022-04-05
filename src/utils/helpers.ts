@@ -1,3 +1,6 @@
+/* eslint-disable consistent-return */
+
+
 export const sleep = (time: number) =>
   new Promise((res) => setTimeout(res, time));
 
@@ -39,3 +42,5 @@ export const removeWindowClass = (classList: string) => {
     window.classList.remove(classList);
   }
 };
+
+

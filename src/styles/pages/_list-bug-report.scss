@@ -1,0 +1,17 @@
+.list-bug-report {
+    .box-filter {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        &__date {
+            margin-left: 10px;
+        }
+        &__type-bug {
+            margin-left: 10px;
+        }
+        &__status {
+            margin-left: 10px;
+        }
+    }
+}

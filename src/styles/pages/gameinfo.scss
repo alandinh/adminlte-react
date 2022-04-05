@@ -1,0 +1,55 @@
+.gameinfo {
+    padding: 0 25px;
+    .tab {
+        background: #ffffff;
+        /* Text - Primary/25 */
+        .tab-head {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px;
+            .title-head-tab {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 23px;
+                letter-spacing: -0.05em;
+                color: #404b50;
+            }
+        }
+        .tab-content {
+            padding: 0px 25px 20px 30px;
+            .title {
+                color: #8b9aa2;
+                font-weight: 600;
+                font-size: 16px;
+            }
+            .value {
+                color: #404b50;
+            }
+        }
+        border: 1px solid #d3d9dc;
+        box-sizing: border-box;
+        border-radius: 8px;
+        .action {
+            text-align: right;
+            &__btn {
+                background: #ffffff;
+                border-radius: 8px;
+                padding: 9px 15px;
+                height: 34px;
+                display: flex;
+                align-items: center;
+                border: 1px solid #2d7ff9;
+                cursor: pointer;
+                p {
+                    margin: 0;
+                    padding-left: 5px;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #000000;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,236 @@
+// common modal css
+.ant-modal-content {
+    border-radius: 20px !important;
+    overflow: hidden;
+
+    .ant-modal-header {
+        .ant-modal-title {
+            padding-top: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 25px;
+            letter-spacing: -0.05em;
+        }
+    }
+
+    .ant-modal-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+// spread modal css
+// delete type user modal
+.modal-delete-type-user {
+    &__body {
+        margin: 0 auto;
+
+        p {
+            font-size: 16px;
+            line-height: 20px;
+            color: #404b50;
+
+            span {
+                font-size: 16px;
+                color: red;
+            }
+        }
+
+        .btn-control {
+            margin: 30px auto 0;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+// modal-delete-user
+.modal-delete-user {
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: -0.05em;
+            color: #404b50;
+            margin: 10px 0;
+        }
+
+        .des {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 25px;
+            letter-spacing: -0.05em;
+            color: #404b50;
+        }
+    }
+}
+
+// modal-confirm-change-pass
+.modal-confirm-change-pass {
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-pass {
+        margin-top: 15px;
+    }
+
+    .btn-control {
+        margin: 15px auto;
+    }
+}
+
+// modal-confirm-change-pass
+.modal-edit-bug-report {
+    &__body {
+        &--status {
+            label {
+                span {
+                    font-weight: 600;
+                    color: red;
+                }
+            }
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--method {
+            margin-top: 15px;
+
+            label {
+                span {
+                    font-weight: 600;
+                    color: red;
+                }
+            }
+        }
+
+        &--note {
+            margin-top: 15px;
+        }
+    }
+
+    .btn-control {
+        margin: 15px auto;
+    }
+}
+
+.modal__wrapper {
+    min-width: 600px;
+
+    .modal-detail-error {
+        &__body {
+            width: 100%;
+            padding: 0 40px;
+        }
+
+        &__title {
+            text-align: center;
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        &__sub-title {
+            text-align: center;
+            font-style: italic;
+        }
+
+        &__content {
+            display: flex;
+            justify-content: space-between;
+
+            .title {
+                font-weight: 600;
+                color: #404b50;
+            }
+        }
+
+        &--select {
+            flex-direction: column;
+            margin-bottom: 10px;
+
+            .ant-select {
+                width: 100%;
+                padding: 0;
+            }
+        }
+    }
+
+    .button-custom {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        border-radius: 8px;
+    }
+}
+// modal-create-notification-type
+.modal-create-notification-type {
+    &__body {
+        width: 100%;
+        &--type {
+            label {
+                span {
+                    font-weight: 600;
+                    color: red;
+                }
+            }
+        }
+        &--des {
+            margin-top: 15px;
+        }
+        &--note {
+            margin-top: 15px;
+        }
+    }
+}
+//modal-detail-notify
+.modal-detail-notify {
+    &__header {
+        p {
+            font-family: "Source Sans Pro";
+            font-style: italic;
+            font-size: 16px;
+            line-height: 20px;
+            color: #404b50;
+        }
+    }
+    &__body {
+        &--box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .title {
+                margin-right: 100px;
+                font-family: "Source Sans Pro";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                color: #404b50;
+            }
+            .value {
+                font-family: "Source Sans Pro";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                color: #404b50;
+            }
+        }
+    }
+}

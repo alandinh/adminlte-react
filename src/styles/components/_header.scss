@@ -1,0 +1,16 @@
+.header-custom {
+    .dropdown-menu {
+        width: 80px !important;
+
+        .user-footer {
+            display: flex;
+            flex-direction: column;
+
+
+            button {
+                border: none;
+            }
+        }
+    }
+
+}

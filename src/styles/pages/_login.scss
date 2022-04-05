@@ -1,0 +1,24 @@
+.login-box {
+    .card-header {
+        .branch-name {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 24px;
+        }
+
+        span {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 400;
+        }
+    }
+
+    .card-body {
+        .login-box-msg {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 24px;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+.edit-user {
+    &__content {
+        width: 80%;
+        margin: auto;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    &__input,
+    &__select,
+    &__text-area {
+        flex: 1;
+        margin: 0 12px;
+    }
+
+    &__select {
+        .ant-select {
+            width: 100%;
+        }
+    }
+
+    &__button {
+        border-radius: 8px;
+        border: 1px solid #2d7ff9;
+        width: 140px;
+        text-align: center;
+        padding: 8px 10px;
+        display: flex;
+        align-items: center;
+
+        p {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
+            margin: 0;
+            margin-left: 5px;
+            color: #2d7ff9;
+        }
+    }
+}

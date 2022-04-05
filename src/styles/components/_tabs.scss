@@ -1,0 +1,99 @@
+.tabs {
+    .tabs--outbox {
+        .ant-tabs {
+            &-nav {
+                margin: 30px 0;
+
+                &::before {
+                    border: none;
+                }
+
+                &-list {
+                    display: flex;
+                }
+            }
+
+            &-tab {
+                padding: 10px 30px;
+                border: 1px solid #404B50;
+                border-radius: 8px;
+
+                &:hover {
+                    color: #404B50;
+                }
+            }
+
+            &-tab-active {
+                background-color: #404B50;
+
+
+                .ant-tabs-tab-btn {
+                    color: #fff;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+            }
+
+            &-ink-bar {
+                background: none;
+            }
+        }
+
+        .tabs--inbox {
+            .ant-tabs {
+                &-nav {
+                    margin: 0;
+
+                    &::before {
+                        border: none;
+                    }
+
+                    &-wrap {
+                        display: flex;
+                        justify-content: space-around;
+                        width: 100%;
+                        margin-bottom: 20px;
+                    }
+
+                    &-list {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                    }
+
+                    &-more {
+                        display: none;
+                    }
+                }
+
+                &-tab {
+                    padding: 10px 30px;
+                    border: none;
+                    border-radius: 8px;
+                    margin: 0;
+
+                    &:hover {
+                        color: #404B50;
+                    }
+                }
+
+                &-tab-active {
+                    background: none;
+
+
+                    .ant-tabs-tab-btn {
+                        color: #404B50;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
+                }
+
+                &-ink-bar {
+                    border: 1px solid rgba(0, 0, 0, 0.5);
+                }
+            }
+        }
+    }
+}

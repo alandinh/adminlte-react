@@ -1,0 +1,87 @@
+.container-create-user {
+    .content {
+        padding: 20px 80px;
+        .form {
+            &-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                label {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #404b50;
+                    span {
+                        color: red;
+                    }
+                }
+                input {
+                    border-radius: 8px;
+                }
+                &__name {
+                    min-width: 30%;
+                }
+                &__email {
+                    min-width: 30%;
+                }
+                &__phone {
+                }
+            }
+            &-body {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                flex: 1 1;
+
+                &__role {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    label {
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: #404b50;
+                        span {
+                            color: red;
+                        }
+                    }
+                }
+                &__pass {
+                    input {
+                        border-radius: 8px;
+                    }
+                    margin-top: 20px;
+                    label {
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: #404b50;
+                        span {
+                            color: red;
+                        }
+                    }
+                }
+            }
+            &-footer {
+                &__note {
+                    margin-top: 20px;
+                    label {
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: #404b50;
+                        span {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-control {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
